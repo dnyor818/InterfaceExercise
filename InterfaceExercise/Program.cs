@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -13,10 +14,27 @@ namespace InterfaceExercise
             //Create 3 classes called Car , Truck , & SUV
 
             //In your IVehicle
+
+            /* Create 4 members that Car, Truck, & SUV all have in common.
+             * Example: All vehicles have a number of wheels... for now..
+             */
+            Car myFirstCar = new Car { HasTrunk = true, Make = "Acura", Model = "TSX", Year = "2009", HasNosKit = true, ColorScheme ="Blue and Black", Logo = "Acura 'A'" };
+            Truck myFirstTruck = new Truck { HasBed = true, Make = "Nissan", Model = "SV6", Year = "1985", HasLiftKit = false, ColorScheme = "Red", Logo = "Nissan Logo" };
+            SUV myFirstSuv = new SUV { HasTrunk = true, Make = "Chevrolet", Model = "Yukon", Year = "2010", ColorScheme = "Yellow", Logo = "Yellow Chevy Logo" };
             
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: All vehicles have a number of wheels... for now..
-                 */
+            List<IVehicle> vehicles = new List<IVehicle>();
+
+            vehicles.Add(myFirstCar);
+            vehicles.Add(myFirstTruck);
+            vehicles.Add(myFirstSuv);
+
+
+
+            foreach (IVehicle vehicle in vehicles)
+            {
+                Console.WriteLine($"Year :{vehicle.Year} Make: {vehicle.Make} Model: {vehicle.Model} Logo: {vehicle.Logo} CholorScheme: {vehicle.ColorScheme}");
+                vehicle.Drive();
+            }
             
 
             //In ICompany
